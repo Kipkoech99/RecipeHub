@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Featured Recipes Section -->
+    <section class="featured-recipes">
+        <div class="container">
+            <h2>Featured Recipes</h2>
+            <div class="row">
+                {% for recipe in featured_recipes %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="recipe-card">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/' + recipe.image) }}" alt="{{ recipe.title }}">
+                        <div class="recipe-details">
+                            <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <div class="container">
+            <h2>New Arrivals</h2>
+            <div class="row">
+                {% for recipe in new_arrivals %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="recipe-card">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/' + recipe.image) }}" alt="{{ recipe.title }}">
+                        <div class="recipe-details">
+                            <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
+                            <p>{{ recipe.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Categories Section -->
+    <section class="recipe-categories">
+        <div class="container">
+            <h2>Recipe Categories</h2>
+            <div class="category-list">
+                <a href="#" class="btn btn-primary">Appetizers</a>
+                <a href="#" class="btn btn-primary">Main Dishes</a>
+                <a href="#" class="btn btn-primary">Desserts</a>
+                <!-- Add more categories as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef's Picks Section -->
+    <section class="chefs-picks">
+        <div class="container">
+            <h2>Chef's Picks</h2>
+            <div class="row">
+                {% for chef_pick in chefs_picks %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="chef-card">
+                        <img class="img-fluid" src="{{ url_for('static', filename='images/chefs/' + chef_pick.image) }}" alt="{{ chef_pick.name }}">
+                        <div class="chef-details">
+                            <h3>{{ chef_pick.name }}</h3>
+                            <p>{{ chef_pick.recommendation }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
