@@ -9,7 +9,7 @@
                 {% for recipe in featured_recipes %}
                 <div class="col-lg-4 col-md-6">
                     <div class="recipe-card">
-                        <img class="img-fluid" src="{{ url_for('static', filename='images/' + recipe.image) }}" alt="{{ recipe.title }}">
+                        <div class="recipe-img-placeholder"></div> <!-- Placeholder for recipe image -->
                         <div class="recipe-details">
                             <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
                             <p>{{ recipe.description }}</p>
@@ -29,7 +29,7 @@
                 {% for recipe in new_arrivals %}
                 <div class="col-lg-4 col-md-6">
                     <div class="recipe-card">
-                        <img class="img-fluid" src="{{ url_for('static', filename='images/' + recipe.image) }}" alt="{{ recipe.title }}">
+                        <div class="recipe-img-placeholder"></div> <!-- Placeholder for recipe image -->
                         <div class="recipe-details">
                             <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
                             <p>{{ recipe.description }}</p>
@@ -62,7 +62,7 @@
                 {% for chef_pick in chefs_picks %}
                 <div class="col-lg-4 col-md-6">
                     <div class="chef-card">
-                        <img class="img-fluid" src="{{ url_for('static', filename='images/chefs/' + chef_pick.image) }}" alt="{{ chef_pick.name }}">
+                        <div class="chef-img-placeholder"></div> <!-- Placeholder for chef image -->
                         <div class="chef-details">
                             <h3>{{ chef_pick.name }}</h3>
                             <p>{{ chef_pick.recommendation }}</p>

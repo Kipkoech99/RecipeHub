@@ -1,22 +1,83 @@
-/* Add your CSS styles here */
-body {
-    font-family: Arial, sans-serif;
-}
+/* static/css/styles.css */
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
+/* Include Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-nav ul {
-    list-style-type: none;
+/* Your custom CSS rules */
+/* Add or update your existing styles using Tailwind CSS utility classes */
+
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
+/* Basic styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #ffffff; /* White header background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Header shadow */
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #333; /* Dark header text color */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-tabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-tabs li {
     margin-right: 20px;
+}
+
+.nav-tabs li:last-child {
+    margin-right: 0;
+}
+
+.nav-tabs li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: auto;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }
 
 main {
@@ -24,8 +85,31 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #333; /* Dark footer background */
+    color: #fff; /* Light footer text color */
     text-align: center;
+    padding: 10px 0;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .nav-tabs li,
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+body {
+    background-image: url('{{ url_for("static", filename="images/food.jpg") }}');
+    /* Additional background properties */
+    background-size: cover; /* Adjusts the size of the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
 }

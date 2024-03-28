@@ -10,10 +10,15 @@
     <header>
         <h1>RecipeHub</h1>
         <nav>
-            <ul>
+            <ul class="nav-tabs">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Categories</a></li>
+                <!-- Add more tabs as needed -->
+            </ul>
+            <ul class="nav-links">
                 <li><a href="{{ url_for('login') }}">Login</a></li>
-                <!-- Add other navigation links as needed -->
+                <!-- Add more links as needed -->
             </ul>
         </nav>
     </header>

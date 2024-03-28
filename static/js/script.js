@@ -26,7 +26,9 @@ function submitRating(recipeId) {
     .then(data => {
         console.log('Rating submitted successfully:', data);
         // Update UI to reflect rating submission
-        // For example, display a success message or update the rating display
+        // For example, you can dynamically update styles using Tailwind CSS classes
+        // Example:
+        // document.getElementById('rating-container').classList.add('text-green-500');
     })
     .catch(error => {
         console.error('Error submitting rating:', error);
@@ -54,7 +56,9 @@ function submitComment(recipeId) {
     .then(data => {
         console.log('Comment submitted successfully:', data);
         // Update UI to reflect comment submission
-        // For example, display a success message or update the comment display
+        // For example, you can dynamically update styles using Tailwind CSS classes
+        // Example:
+        // document.getElementById('comment-container').classList.add('bg-blue-100');
     })
     .catch(error => {
         console.error('Error submitting comment:', error);
