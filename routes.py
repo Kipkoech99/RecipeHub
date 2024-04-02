@@ -1,3 +1,4 @@
+# routes.py
 from flask import render_template, request, redirect, url_for, flash
 from app import app, db
 from models import User, Recipe, Comment
@@ -21,7 +22,13 @@ def recipe_detail(recipe_id):
         db.session.commit()
         flash('Your comment has been added!', 'success')
         return redirect(url_for('recipe_detail', recipe_id=recipe_id))
-    return render_template('recipe_detail.html', recipe=recipe, comment_form=comment_form)
+    return render_template('recipe.html', recipe=recipe, comment_form=comment_form)
+
+# Recipes route
+@app.route('/recipes')
+def recipes():
+    recipes = Recipe.query.all()
+    return render_template('recipes.html', recipes=recipes)
 
 # Login route
 @app.route('/login', methods=['GET', 'POST'])

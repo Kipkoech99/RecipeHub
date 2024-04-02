@@ -1,76 +1,81 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to RecipeHub</h1>
+                <p>Discover mouth-watering recipes curated by top chefs.</p>
+                <a href="{{ url_for('signup') }}" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="step">
+                        <img src="{{ url_for('static', filename='images/step1.png') }}" alt="Step 1" class="step-img">
+                        <h3>Discover</h3>
+                        <p>Explore a wide range of recipes from various categories.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step">
+                        <img src="{{ url_for('static', filename='images/step2.png') }}" alt="Step 2" class="step-img">
+                        <h3>Cook</h3>
+                        <p>Follow step-by-step instructions to cook delicious meals.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step">
+                        <img src="{{ url_for('static', filename='images/step3.png') }}" alt="Step 3" class="step-img">
+                        <h3>Enjoy</h3>
+                        <p>Share your culinary creations and enjoy the satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Recipes Section -->
     <section class="featured-recipes">
         <div class="container">
             <h2>Featured Recipes</h2>
             <div class="row">
                 {% for recipe in featured_recipes %}
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe-card">
-                        <div class="recipe-img-placeholder"></div> <!-- Placeholder for recipe image -->
-                        <div class="recipe-details">
-                            <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
-                            <p>{{ recipe.description }}</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe-card">
+                            <div class="recipe-img">
+                                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                            </div>
+                            <div class="recipe-details">
+                                <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
+                                <p>{{ recipe.description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
+            <a href="{{ url_for('recipes') }}" class="btn btn-secondary">View All Recipes</a>
         </div>
     </section>
 
-    <!-- New Arrivals Section -->
-    <section class="new-arrivals">
+    <!-- Testimonials Section -->
+    <section class="testimonials">
         <div class="container">
-            <h2>New Arrivals</h2>
-            <div class="row">
-                {% for recipe in new_arrivals %}
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe-card">
-                        <div class="recipe-img-placeholder"></div> <!-- Placeholder for recipe image -->
-                        <div class="recipe-details">
-                            <h3><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.title }}</a></h3>
-                            <p>{{ recipe.description }}</p>
-                        </div>
-                    </div>
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    <p>"I love RecipeHub! It has made cooking so much easier and more enjoyable for me."</p>
+                    <span>- Sarah M.</span>
                 </div>
-                {% endfor %}
             </div>
-        </div>
-    </section>
-
-    <!-- Recipe Categories Section -->
-    <section class="recipe-categories">
-        <div class="container">
-            <h2>Recipe Categories</h2>
-            <div class="category-list">
-                <a href="#" class="btn btn-primary">Appetizers</a>
-                <a href="#" class="btn btn-primary">Main Dishes</a>
-                <a href="#" class="btn btn-primary">Desserts</a>
-                <!-- Add more categories as needed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Chef's Picks Section -->
-    <section class="chefs-picks">
-        <div class="container">
-            <h2>Chef's Picks</h2>
-            <div class="row">
-                {% for chef_pick in chefs_picks %}
-                <div class="col-lg-4 col-md-6">
-                    <div class="chef-card">
-                        <div class="chef-img-placeholder"></div> <!-- Placeholder for chef image -->
-                        <div class="chef-details">
-                            <h3>{{ chef_pick.name }}</h3>
-                            <p>{{ chef_pick.recommendation }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+            <!-- Add more testimonials as needed -->
         </div>
     </section>
 {% endblock %}

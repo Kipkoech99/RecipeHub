@@ -1,0 +1,38 @@
+<!-- recipe.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ recipe.title }}</h1>
+    <p>Ingredients: {{ recipe.ingredients }}</p>
+    <p>Instructions: {{ recipe.instructions }}</p>
+
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in recipe.comments %}
+            <li>{{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Rating</h2>
+    {% if recipe.ratings %}
+        Average Rating: {{ recipe.average_rating }}
+    {% else %}
+        No ratings yet.
+    {% endif %}
+
+    <form action="{{ url_for('add_comment', recipe_id=recipe.id) }}" method="POST">
+        <input type="text" name="content" placeholder="Add a comment">
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <form action="{{ url_for('rate_recipe', recipe_id=recipe.id) }}" method="POST">
+        <select name="value">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+        <button type="submit">Rate</button>
+    </form>
+{% endblock %}

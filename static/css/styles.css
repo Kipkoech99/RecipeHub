@@ -1,115 +1,208 @@
-/* static/css/styles.css */
-
-/* Include Tailwind CSS */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-/* Your custom CSS rules */
-/* Add or update your existing styles using Tailwind CSS utility classes */
-
-/* Reset default margin and padding */
-body, h1, h2, h3, p, ul, li {
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
-/* Basic styling */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9; /* Light gray background */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
     color: #333;
-    line-height: 1.6;
 }
 
-header {
-    background-color: #ffffff; /* White header background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Header shadow */
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Featured Recipes Section */
+.featured-recipes {
+    padding: 80px 0;
+}
+
+.featured-recipes h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* New Arrivals Section */
+.new-arrivals {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+}
+
+.new-arrivals h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Recipe Categories Section */
+.recipe-categories {
+    padding: 80px 0;
+}
+
+.recipe-categories h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-list .btn {
+    flex: 1;
+    margin: 0 15px;
+}
+
+/* Chef's Picks Section */
+.chefs-picks {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.chefs-picks h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.chefs-picks .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chefs-picks .col-lg-4 {
+    width: 33.33%;
+    padding: 0 15px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.testimonials .testimonial {
     padding: 20px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    font-size: 2em;
-    color: #333; /* Dark header text color */
+.testimonials .testimonial:last-child {
+    margin-bottom: 0;
 }
 
-nav {
+/* Navigation Bar */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
 }
 
-.nav-tabs {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.navbar-toggle {
+    display: none;
+}
+
+.main-nav {
     display: flex;
-}
-
-.nav-tabs li {
-    margin-right: 20px;
-}
-
-.nav-tabs li:last-child {
-    margin-right: 0;
-}
-
-.nav-tabs li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-.nav-links {
+    justify-content: flex-end;
+    align-items: center;
     list-style-type: none;
     margin: 0;
-    padding: 0;
 }
 
-.nav-links li {
+.main-nav li {
     margin-left: 20px;
 }
 
-.nav-links li:first-child {
-    margin-left: auto;
-}
-
-.nav-links li a {
+.nav-links {
     text-decoration: none;
-    color: #333;
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5em;
     font-weight: bold;
+    text-decoration: none;
+    color: #fff;
 }
 
-main {
-    padding: 20px;
-}
-
-footer {
-    background-color: #333; /* Dark footer background */
-    color: #fff; /* Light footer text color */
-    text-align: center;
-    padding: 10px 0;
-}
-
-/* Responsive design */
 @media screen and (max-width: 768px) {
-    header {
-        padding: 10px;
-    }
-    header h1 {
-        font-size: 1.5em;
-    }
-    nav {
+    .main-nav {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 20px 0;
+        text-align: center;
     }
-    .nav-tabs li,
-    .nav-links li {
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav li {
         margin: 10px 0;
     }
-}
-body {
-    background-image: url('{{ url_for("static", filename="images/food.jpg") }}');
-    /* Additional background properties */
-    background-size: cover; /* Adjusts the size of the background image */
-    background-repeat: no-repeat; /* Prevents the background image from repeating */
+
+    .navbar-toggle {
+        display: block;
+        color: #fff;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
 }
